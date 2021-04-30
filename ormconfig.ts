@@ -4,10 +4,12 @@ import {
   DATABASE_NAME,
   DATABASE_PASSWORD,
   DATABASE_PORT,
+  DATABASE_USERNAME,
 } from "config";
 
 const config: PostgresConnectionOptions = {
   type: "postgres",
+  username: DATABASE_USERNAME,
   host: DATABASE_HOST,
   port: DATABASE_PORT,
   database: DATABASE_NAME,

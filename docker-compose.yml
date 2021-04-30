@@ -1,0 +1,18 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:12.6-alpine
+    restart: always
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    env_file: ./.env
+  nest-issue-tracker:
+    build: .
+    ports:
+      - "3000:3000"
+    env_file: ./.env
+    depends_on: 
+      - postgres
+
+volumes:
+  pg-data:

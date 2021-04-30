@@ -1,0 +1,16 @@
+version: "3"
+services:
+  postgres:
+    environment:
+      - POSTGRES_DB=issue-tracker-dev
+  nest-issue-tracker:
+    build:
+      context: .
+      args: 
+        NODE_ENV: development
+    volumes: 
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - DATABASE_NAME=issue-tracker-dev
+    command: npm run start:dev

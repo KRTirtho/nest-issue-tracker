@@ -1,0 +1,8 @@
+version: "3"
+services:
+  nest-issue-tracker:
+    build:
+      context: .
+      args: 
+        NODE_ENV: production
+    command: node dist/src/main.js
